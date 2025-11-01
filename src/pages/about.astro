@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import goatsJPG from '/src/images/goats.jpg';
+import viewJPG from '/src/images/view.jpg';
+
+
+const title = 'About';
+const description = 'About your blog.';
+const permalink = `${Astro.site.href}about`;
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} current="about">
+  <div class="container">
+    <h1>About</h1>
+    <figure class="about-image">
+	View from Skylark Ct looking towards San Francisco. On a clear day, you can see Sutro Tower and the top of the Golden Gate Bridge. Oakland is toward the right.
+      <Image src={viewJPG} alt="View from Skylark Ct"/>
+	  Our commitment to sustainability includes using goats to reduce vegetation in the common areas before wildfire season, usually toward the end of May.
+	  <Image src={goatsJPG} alt="Goats for sustainable weed control."/>
+      <figcaption>
+        Photos by HOA Board Member Daniel Goldstein
+      </figcaption>
+    </figure>
+    <p>Altura at Garin Heights Owners Association
+	<br>30089 Skylark Ct
+	<br>Hayward CA 94544</p>
+    <p><b>Board Members</b></p>
+	<p>Daniel Goldstein, President</p>
+	<p>Paul Sandhu, Vice President</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-image {
+    float: right;
+    margin: -3em -7em 2em 2em;
+    max-width: 300px;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 1020px) {
+    .about-image {
+      float: none;
+      margin: 0 auto 2em;
+    }
+  }
+</style>
